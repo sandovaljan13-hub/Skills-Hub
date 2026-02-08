@@ -1,0 +1,50 @@
+{
+  "skill_name": "c-suite-storytelling",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here's our regional performance data. Build me a board deck for the CFO — we need approval for a $200K marketing investment in the highest-margin region. Use the data to tell the story.",
+      "expected_output": "A 7-10 slide .pptx executive deck with action titles, verified charts, anchoring devices on evidence slides, inaction framing on the recommendation, and a clean comparison of investment options across regions.",
+      "files": ["board_data.csv"],
+      "assertions": [
+        "Every slide title is an action title (states a conclusion, not a topic label)",
+        "Executive Summary slide contains large KPI callouts (60-72pt) and an explicit ask",
+        "At least one evidence slide includes an anchoring device (scale comparison, contrast frame, or metaphor)",
+        "Recommendation slide includes an inaction/cost-of-delay frame",
+        "All charts are generated (not suggested) and embedded in the deck",
+        "All numbers on slides match the auditor's Verified Metrics",
+        "No accent lines under titles",
+        "Body text on any slide does not exceed ~50 words",
+        "Deck follows the narrative arc: Title → Exec Summary → Burning Platform/Evidence → Options → Recommendation → Risks",
+        "The deck outline was presented for user approval before building"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have quarterly revenue data for 6 product lines. Make an executive presentation for the CEO showing which product lines to sunset and which to double down on. The CEO needs to decide by end of quarter.",
+      "expected_output": "A decision-focused deck that categorizes product lines by performance, uses contrast framing to highlight the gap between winners and losers, and presents 2-3 strategic options with quantified trade-offs.",
+      "files": ["product_line_quarterly.xlsx"],
+      "assertions": [
+        "Briefing questions are asked before building (at minimum: which KPIs define 'sunset' vs 'double down')",
+        "Burning Platform slide creates urgency around the end-of-quarter deadline",
+        "Evidence slides use contrast framing between strong and weak product lines",
+        "Options slide presents 2-3 paths with projected impact, not just 'sunset these ones'",
+        "Inaction frame is present: what happens if no decision is made this quarter",
+        "Charts are generated and match verified data"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Turn this data into a board presentation. Just make it look good.",
+      "expected_output": "The skill should ask at minimum what decision the board needs to make, then proceed with defaults for everything else. Should not build slides without understanding the purpose.",
+      "files": ["generic_financials.csv"],
+      "assertions": [
+        "The agent asks at least the decision question (#2) before building",
+        "The agent does NOT dump all 5 briefing questions as a wall of text",
+        "After getting the decision answer, the agent proceeds without over-questioning",
+        "Default styling is applied (dark title/conclusion slides, light content slides, no generic blue)",
+        "Output is a complete .pptx file, not just an outline or suggestions"
+      ]
+    }
+  ]
+}
