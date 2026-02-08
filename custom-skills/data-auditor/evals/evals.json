@@ -1,0 +1,45 @@
+{
+  "skill_name": "data-auditor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here's our regional sales data. Check if the numbers are correct before I use them in a presentation.",
+      "expected_output": "A complete Data Integrity Report with schema summary, quality findings, verified metrics, cross-validation results, and the full audit source code.",
+      "files": ["regional_sales.csv"],
+      "assertions": [
+        "All statistics are computed with code, not estimated or eyeballed",
+        "Cross-validation checks are performed (e.g., do regions sum to total, do margins match Revenue/EBITDA)",
+        "A status of GREEN, YELLOW, or RED is assigned with clear justification",
+        "The report is saved to /mnt/user-data/outputs/data-integrity-report.md",
+        "The complete Python audit script is included in the report",
+        "Financial figures use 2 decimal places with comma separation",
+        "Percentages use 1 decimal place"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have this spreadsheet but I think some of the totals are wrong. Can you verify?",
+      "expected_output": "The auditor should identify specific rows where totals don't match the sum of components, report the exact discrepancy amounts, and flag them as RED.",
+      "files": ["budget_with_errors.xlsx"],
+      "assertions": [
+        "Additive cross-validation is performed (subcategories vs totals)",
+        "Specific discrepancies are identified with row numbers and amounts",
+        "The tolerance threshold of $0.01 is applied correctly",
+        "Status is RED if any discrepancy exceeds $0.01",
+        "The user is told which specific values are wrong and by how much"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Audit this CSV. About 30% of the revenue column is blank.",
+      "expected_output": "The auditor should stop at the quality gate, report that Revenue has >20% missing, and ask the user how to proceed before continuing.",
+      "files": ["sparse_data.csv"],
+      "assertions": [
+        "The >20% missing gate triggers and halts the audit",
+        "The user is asked how to proceed (exclude column, continue with caveats, or stop)",
+        "Status is set to RED",
+        "The auditor does NOT silently compute statistics on the mostly-empty column"
+      ]
+    }
+  ]
+}
