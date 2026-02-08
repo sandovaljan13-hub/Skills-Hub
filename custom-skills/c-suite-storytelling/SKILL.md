@@ -252,7 +252,96 @@ If a slide has more than 50 words of body text, it's wrong. Rewrite it. Options:
 
 ---
 
-## 6. Executive Language Standards
+## 6. Executive Anchoring & Narrative Devices
+
+Numbers inform. Anchored numbers persuade. Every evidence slide must include at least one anchoring device that makes the data *feel* real to someone who processes 50 decks a month. The goal is not to dumb things down — it's to make magnitude instantly intuitive.
+
+### The Anchoring Toolkit
+
+Apply one or more of these techniques to every key metric. Choose the technique that best fits the metric type.
+
+#### 1. Scale Comparisons (make magnitude tangible)
+
+Translate abstract numbers into physical, temporal, or organizational references the audience already understands.
+
+| Instead of... | Write... | Why it works |
+|---------------|----------|-------------|
+| "$2.1M in recoverable leakage" | "$2.1M in leakage — enough to fund the entire Q3 hiring plan and still have $300K left over" | Ties the number to a real internal budget they already know |
+| "45% utilization rate" | "Our machines sit idle more than half of every working day — that's 4.5 hours of paid capacity producing nothing" | Converts percentage to time, which is visceral |
+| "3,200 support tickets per month" | "That's one ticket every 13 minutes, around the clock, including weekends" | Cadence creates urgency |
+| "$800K annual savings" | "$800K — roughly 16 fully-loaded headcount worth of savings, redeployed without a single hire" | FTE equivalents resonate with executives who think in headcount |
+
+**How to construct a scale comparison:**
+1. Take the metric value
+2. Divide or multiply it by something the audience already cares about (headcount cost, project budgets, time units, competitor benchmarks)
+3. State the result as a concrete, specific equivalence
+4. Never use vague comparisons ("a significant amount") — always quantify the anchor
+
+#### 2. Metaphors & Similes (make concepts intuitive)
+
+Use a single, precise metaphor per slide to frame the strategic concept. The metaphor must clarify, not decorate — if removing it would lose no meaning, cut it.
+
+| Context | Metaphor | When to use |
+|---------|----------|-------------|
+| Strong foundation for investment | "North isn't just leading — it's the load-bearing wall of our margin structure. You don't drill into a load-bearing wall; you build on it." | When arguing to invest in a strength, not fix a weakness |
+| Diminishing returns risk | "East is a leaking bucket — pouring more water in before sealing the holes just means losing faster." | When arguing against investing in an underperforming area |
+| First-mover advantage | "This market window is a revolving door — we either step through now or wait for the next rotation, but our competitors are already in the lobby." | When creating urgency around timing |
+| Compounding growth | "Each dollar in North earns $0.24 back. Reinvest that, and it's a flywheel — not a one-time return, but an engine that accelerates with every turn." | When illustrating reinvestment logic |
+| Risk mitigation | "The two-tranche structure is a seatbelt, not a brake — it doesn't slow us down, it protects the downside if we hit a wall." | When framing a safeguard as non-restrictive |
+
+**Rules for metaphors:**
+- One metaphor per slide maximum. Two metaphors compete and dilute each other.
+- The metaphor must map cleanly to the business concept. If you have to explain the metaphor, it failed.
+- Avoid clichés: no "low-hanging fruit," no "moving the needle," no "boiling the ocean," no "drinking from a firehose."
+- Physical metaphors (building, engineering, physics) work best for operations and finance audiences. Journey metaphors (navigation, exploration) work best for strategy and growth audiences.
+- Never use a metaphor in the Executive Summary slide — that slide is pure numbers and the ask. Metaphors belong in evidence and burning platform slides.
+
+#### 3. Contrast Framing (make differences impossible to ignore)
+
+Place two numbers side by side with explicit interpretation of the gap. The contrast must answer "so what does this difference mean in practice?"
+
+| Flat presentation | Contrast-framed |
+|-------------------|----------------|
+| "North: 24% margin. East: 12.5% margin." | "Every $1M of revenue in North generates $240K in EBITDA. The same million in East generates $125K. That's a $115K gap per million — North earns nearly double for the same top-line effort." |
+| "Churn: 8%. Industry avg: 5%." | "We lose 3 more customers out of every 100 than our peers do. Over our 10,000 customer base, that's 300 extra lost accounts per year — $4.2M in revenue walking out the door that our competitors keep." |
+| "Response time: 4.2 hours. SLA: 2 hours." | "We're breaching SLA by 2.2 hours on average. For a customer waiting on a production issue, that's the difference between a lunch-hour fix and an end-of-day fire drill." |
+
+#### 4. The "What If We Don't Act" Frame (make inaction costly)
+
+For every recommendation slide, include the cost of doing nothing. Executives are loss-averse — framing the alternative as a loss is more persuasive than framing the action as a gain.
+
+| Action frame (weaker) | Inaction frame (stronger) |
+|-----------------------|--------------------------|
+| "Investing $200K yields $240K in EBITDA" | "Every quarter we delay this investment, we forgo ~$60K in incremental EBITDA. By Q4, the cost of waiting will have exceeded the investment itself." |
+| "Automating this process saves 12 FTE hours/week" | "Without automation, we're burning 624 hours per year — that's 16 full work-weeks of a senior analyst spent on manual reconciliation instead of strategic analysis." |
+| "Expanding to APAC captures a $30M market" | "APAC is growing at 34% annually. Our two closest competitors entered last quarter. Every month we wait, the addressable whitespace shrinks by an estimated $800K." |
+
+### How to Apply Anchoring in Practice
+
+When building each evidence slide:
+
+1. **Start with the verified metric** from the auditor output
+2. **Apply the "So What" test** — can the audience immediately grasp why this number matters?
+3. If no → select 1-2 anchoring techniques from the toolkit above
+4. **Write the anchor as a single sentence** placed directly below or beside the key metric on the slide. Format it as 12-14pt italic or as a callout box — it should be visible but secondary to the number itself.
+5. **Verify the anchor math with code** — every comparison, equivalence, or projection in an anchoring statement must be computed, not estimated. If you say "$800K = 16 FTEs," you must compute: $800K ÷ $50K average fully-loaded cost = 16. Show this in the audit log.
+
+### Anchoring Density Guide
+
+Not every number needs anchoring. Over-anchoring makes the deck feel like a TED talk instead of a board meeting.
+
+| Slide type | Anchoring level |
+|------------|----------------|
+| Executive Summary | Zero anchoring. Pure metrics and the ask. Let the numbers speak. |
+| Burning Platform | Heavy anchoring. This is where you make them feel the urgency. Use inaction framing + scale comparisons. |
+| Evidence slides | Moderate anchoring. One anchor per slide, on the key metric only. |
+| Options / Comparison | Light anchoring. Let the contrast between options do the persuading. Use contrast framing. |
+| Recommendation | One strong inaction frame. "Here's what we gain. Here's what we lose if we don't." |
+| Risk & Mitigation | One metaphor per risk if it clarifies. Otherwise, keep it factual. |
+
+---
+
+## 7. Executive Language Standards
 
 ### Headline Rules
 Every slide title is an **action title** — a complete sentence that states the insight or conclusion. The audience should understand the slide's message from the title alone, without reading anything else.
@@ -283,7 +372,7 @@ This test is not optional. Apply it to every slide. If a slide exists only to "s
 
 ---
 
-## 7. Execution Workflow
+## 8. Execution Workflow
 
 Follow this exact sequence for every deck:
 
@@ -298,32 +387,35 @@ Follow this exact sequence for every deck:
 6. If audit is GREEN/YELLOW → extract Verified Metrics for use in slides
 
 ### Phase 3: Narrative Planning
-7. Draft the deck outline: list every slide with its action title and visual type
-8. Present the outline to the user: "Here's the narrative arc I'm proposing. Does this structure work, or should I adjust?"
-9. Wait for user approval or edits before building
+7. Draft the deck outline: list every slide with its action title, visual type, and planned anchoring device (Section 6)
+8. For each evidence slide, note which anchoring technique will be used and what the anchor will say
+9. Present the outline to the user: "Here's the narrative arc I'm proposing. Does this structure work, or should I adjust?"
+10. Wait for user approval or edits before building
 
 ### Phase 4: Build
-10. Read the pptx skill (`/mnt/skills/public/pptx/SKILL.md`) and creation guide (`/mnt/skills/public/pptx/pptxgenjs.md`)
-11. Generate all charts (pptxgenjs native or matplotlib → PNG) with accuracy verification
-12. Build the full deck using pptxgenjs
-13. Embed all charts, icons, and visual elements
+11. Read the pptx skill (`/mnt/skills/public/pptx/SKILL.md`) and creation guide (`/mnt/skills/public/pptx/pptxgenjs.md`)
+12. Generate all charts (pptxgenjs native or matplotlib → PNG) with accuracy verification
+13. Compute all anchoring comparisons with code (e.g., FTE equivalents, time conversions, budget comparisons) and log them alongside chart verifications
+14. Build the full deck using pptxgenjs
+15. Embed all charts, icons, anchoring callouts, and visual elements
 
 ### Phase 5: QA (Mandatory — Never Skip)
-14. Follow the pptx skill's QA protocol exactly:
+16. Follow the pptx skill's QA protocol exactly:
     - Content QA with `markitdown`
     - Visual QA by converting to images and inspecting every slide
     - Verify every number on every slide against the audit's Verified Metrics
-15. Fix issues, re-render, re-inspect (the verification loop)
-16. Do not deliver until QA passes with zero issues
+    - Verify every anchoring comparison math is correct (e.g., if you say "16 FTEs" — confirm the per-FTE cost assumption and division)
+17. Fix issues, re-render, re-inspect (the verification loop)
+18. Do not deliver until QA passes with zero issues
 
 ### Phase 6: Deliver
-17. Save final `.pptx` to `/mnt/user-data/outputs/`
-18. Present the file to the user
-19. Provide a brief summary: slide count, key narrative arc, and any caveats from the data audit
+19. Save final `.pptx` to `/mnt/user-data/outputs/`
+20. Present the file to the user
+21. Provide a brief summary: slide count, key narrative arc, and any caveats from the data audit
 
 ---
 
-## 8. Edge Cases
+## 9. Edge Cases
 
 | Scenario | Action |
 |----------|--------|
@@ -339,7 +431,7 @@ Follow this exact sequence for every deck:
 
 ---
 
-## 9. What This Skill Does NOT Do
+## 10. What This Skill Does NOT Do
 
 - It does not perform data analysis or exploration (the auditor handles verification; analysis is a separate workflow)
 - It does not create training decks, onboarding materials, or internal process documentation
