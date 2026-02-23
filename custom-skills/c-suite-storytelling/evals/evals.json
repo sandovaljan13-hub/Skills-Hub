@@ -3,47 +3,72 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Here's our regional performance data. Build me a board deck for the CFO — we need approval for a $200K marketing investment in the highest-margin region. Use the data to tell the story.",
-      "expected_output": "A 7-10 slide .pptx executive deck with action titles, verified charts, anchoring devices on evidence slides, inaction framing on the recommendation, and a clean comparison of investment options across regions.",
+      "prompt": "Here's our regional performance data. Build me a board deck — we need leadership to approve a $200K marketing investment in the highest-margin region. The board meets next Thursday.",
+      "expected_output": "A 7-10 slide .pptx decision deck using SCQA structure: Title states the recommendation with $ impact, SCQA Executive Summary, Burning Platform addressing urgency, 3 evidence slides with Financial Action Titles and logic-bridged metrics, and a Recommendation slide with cost of inaction.",
       "files": ["board_data.csv"],
       "assertions": [
-        "Every slide title is an action title (states a conclusion, not a topic label)",
-        "Executive Summary slide contains large KPI callouts (60-72pt) and an explicit ask",
+        "SCQA Discovery is run before building — at minimum, Situation, Complication, and Decision are extracted or confirmed",
+        "Title slide states the recommendation with a dollar figure or quantified outcome (not a topic label)",
+        "Executive Summary slide follows explicit S-C-Q-A structure",
+        "Every slide title is a Financial Action Title (states financial implication, not just insight or topic)",
+        "Evidence section contains exactly 3 slides (Rule of Three)",
+        "Every metric on evidence slides is logic-bridged to a dollar consequence",
+        "Recommendation slide includes cost of inaction framed for general management (not CFO-specific jargon)",
         "At least one evidence slide includes an anchoring device (scale comparison, contrast frame, or metaphor)",
-        "Recommendation slide includes an inaction/cost-of-delay frame",
-        "All charts are generated (not suggested) and embedded in the deck",
+        "All charts are generated and embedded in the deck",
         "All numbers on slides match the auditor's Verified Metrics",
         "No accent lines under titles",
         "Body text on any slide does not exceed ~50 words",
-        "Deck follows the narrative arc: Title → Exec Summary → Burning Platform/Evidence → Options → Recommendation → Risks",
         "The deck outline was presented for user approval before building"
       ]
     },
     {
       "id": 2,
       "prompt": "I have quarterly revenue data for 6 product lines. Make an executive presentation for the CEO showing which product lines to sunset and which to double down on. The CEO needs to decide by end of quarter.",
-      "expected_output": "A decision-focused deck that categorizes product lines by performance, uses contrast framing to highlight the gap between winners and losers, and presents 2-3 strategic options with quantified trade-offs.",
+      "expected_output": "A decision-focused SCQA deck where the Title states the recommended portfolio action with $ impact, the Complication establishes why the current portfolio mix is untenable, 3 evidence slides use contrast framing and logic bridges to separate winners from losers, and the Recommendation quantifies both the upside of acting and the cost of delay.",
       "files": ["product_line_quarterly.xlsx"],
       "assertions": [
-        "Briefing questions are asked before building (at minimum: which KPIs define 'sunset' vs 'double down')",
+        "SCQA Discovery is run — Complication is identified (e.g., portfolio drag, margin dilution from weak lines)",
+        "Skeptic is identified or defaulted to a general 'why now?' objection",
+        "Title slide states the portfolio recommendation with quantified outcome",
         "Burning Platform slide creates urgency around the end-of-quarter deadline",
         "Evidence slides use contrast framing between strong and weak product lines",
-        "Options slide presents 2-3 paths with projected impact, not just 'sunset these ones'",
+        "Evidence slides have Financial Action Titles (e.g., '2 Product Lines Drag $X in Annual Margin — Sunset Frees Capital for 34% Growth Segment')",
+        "Every metric is logic-bridged (e.g., declining revenue → margin drag → $ lost)",
+        "Recommendation slide presents the action with quantified trade-offs, not just 'sunset these ones'",
         "Inaction frame is present: what happens if no decision is made this quarter",
-        "Charts are generated and match verified data"
+        "Charts are generated and match verified data",
+        "Exactly 3 evidence slides (Rule of Three)"
       ]
     },
     {
       "id": 3,
       "prompt": "Turn this data into a board presentation. Just make it look good.",
-      "expected_output": "The skill should ask at minimum what decision the board needs to make, then proceed with defaults for everything else. Should not build slides without understanding the purpose.",
+      "expected_output": "The skill should run SCQA Discovery — asking at minimum for the Complication ('What's changed or what's at risk?') and the Decision. Should not build slides without establishing the argumentative spine.",
       "files": ["generic_financials.csv"],
       "assertions": [
-        "The agent asks at least the decision question (#2) before building",
-        "The agent does NOT dump all 5 briefing questions as a wall of text",
-        "After getting the decision answer, the agent proceeds without over-questioning",
-        "Default styling is applied (dark title/conclusion slides, light content slides, no generic blue)",
-        "Output is a complete .pptx file, not just an outline or suggestions"
+        "The agent asks for the Complication before building (e.g., 'What's changed?' or 'What problem are we solving?')",
+        "The agent asks for the Decision before building",
+        "The agent does NOT dump all 6 SCQA Discovery questions as a wall of text — asks only what's missing",
+        "After getting answers, the agent proceeds without over-questioning",
+        "Default styling is applied (dark title/recommendation slides, light content slides)",
+        "Output is a complete .pptx file following the SCQA Decision Flow",
+        "Title slide states a recommendation, not a topic label"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Here's our customer data. The CFO is skeptical about renewing our CX platform contract ($500K/year). Build me a deck that makes the case for renewal. She'll want to see hard ROI.",
+      "expected_output": "A SCQA decision deck that identifies the CFO as the Skeptic, uses CFO-specific inaction framing (payback periods, capital efficiency, Cost of Delay table), and translates CX metrics like NPS and CSAT into dollar consequences through logic bridges.",
+      "files": ["cx_platform_data.csv"],
+      "assertions": [
+        "Skeptic is identified as the CFO",
+        "CFO Inaction Framework is activated (Cost of Delay table, payback period language, capital efficiency framing)",
+        "CX metrics (NPS, CSAT, ticket volume) are logic-bridged to dollar impact (churn risk → $ lost, support cost → $ per ticket)",
+        "Financial Action Titles use finance-native language appropriate for CFO (ROI, payback, capital efficiency)",
+        "Recommendation slide includes CFO Delay Cost Table showing cumulative cost of not renewing",
+        "Language is calibrated for CFO (not general management defaults)",
+        "SCQA structure is maintained throughout"
       ]
     }
   ]
